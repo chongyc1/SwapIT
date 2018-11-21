@@ -1,8 +1,9 @@
-<!--index.html-->
+<!--myItems.html-->
 
 <html>
 <head>
     <meta charset="utf-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="{{asset('frontend/css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('frontend/css/font-awesome.min.css')}}" rel="stylesheet">
@@ -10,25 +11,26 @@
     <link rel="icon" type="image/x-icon" href="{{asset('frontend/images/favicon.ico')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('frontend/style.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('frontend/indexStyles.css')}}">
-    <title>Home Page</title>
+    <title>Trader's Home Page</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="{{asset('frontend/js/bootstrap.min.js')}}"></script>
-    <script src="{{asset('library/sweetalert2/dist/sweetalert2.min.js')}}"></script>
-    <link rel="stylesheet" href="{{asset('library/sweetalert2/dist/sweetalert2.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('frontend/style.css')}}">
+
 </head>
 
 <body class="main">
+
 <header>
     <div class="topnav" id="myTopnav">
         <a href="index.html">
-            <img src="http://54.255.234.19/swapit/resources/assets/images/SwapItLogo_horizontal.png" alt="SWAPIT Logo" width="200">
+            <img src="{{asset('frontend/images/SwapitLogo_horizontal.png')}}" alt="SWAPIT Logo" width="200">
         </a>
-        <a href="#categories" class="hoverColor">Categories</a>
+        <a href="post-item" class="hoverColor">Post Item</a>
         <a href="#trending" class="hoverColor">Trending</a>
         <a href="#about" class="hoverColor">About</a>
         <a href="#contactUs" class="hoverColor">Contact Us</a>
-        <a href="login" class="loginNav">Login</a>
-        <a href="register" class="signupNav">Sign Up</a>
+        <a class="loginNav" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">Hello, {{Auth::user()->name}}</a>
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
             <i class="fa fa-bars"></i>
         </a>
@@ -46,38 +48,38 @@
     </script>
 </header>
 
-<div>
-    <img src="{{asset('frontend/images/coverPic.jpg')}}" alt="cover picture" width="100%">
-</div>
 
-<div class="mostPopular">
-    <h2> MOST POPULAR </h2>
-    <p class="popDesc"> The most click items in this week. </p>
+<section>
+    <div class="myItems">
+        <h2> MY ITEMS </h2>
+        <p class="popDesc"> All of your lovely babies here </p>
 
-    <div class="row popItemsSec">
-        <div class="col-sm-4 col-md-4 col-lg-4">
-            <a href="#">
-                <img src="{{asset('frontend/images/watch.jpg')}}" class="popItems" alt="watch" width="300px" height="300px">
-                <p class="popItemsDesc"> Cluse Watch </p>
-            </a>
+        @if(Session::has('msg'))
+            <div class="row">
+                <div class="alert alert-success" style="text-align: center">
+                    <h4>{{Session::get('msg')}}</h4>
+                </div>
+            </div>
+        @endif
+        <div class="row popItemsSec">
+            @foreach($items as $item)
+            <div class="col-sm-4 col-md-4 col-lg-4">
+                <a href="ItemDescription.html">
+                    <img src="{{asset('images')}}/{{$item['image_url']}}" class="popItems" alt="white table" width="100px" height="100px">
+                    <p class="popItemsDesc"> {{$item['item_title']}} </p>
+                </a>
+            </div>
+
+            @endforeach
+            <div class="col-sm-4 col-md-4 col-lg-4">
+                <a href="postItem.html">
+                    <img src="{{asset('frontend/images/white.jpg')}}" class="popItems" alt="White" width="100px" height="100px">
+                    <p class="popItemsDesc"> Add more items </p>
+                </a>
+            </div>
         </div>
-
-        <div class="col-sm-4 col-md-4 col-lg-4">
-            <a href="#">
-                <img src="{{asset('frontend/images/phoneCase.jpg')}}" class="popItems" alt="Phone Case" width="300px" height="300px">
-                <p class="popItemsDesc"> Iphone Case - You will forever be my always </p>
-            </a>
-        </div>
-
-        <div class="col-sm-4 col-md-4 col-lg-4 ">
-            <a href="#">
-                <img src="{{asset('frontend/images/mug.jpg')}}" class="popItems" alt="mug" width="300px" height="300px">
-                <p class="popItemsDesc"> Floral Mug and Plate Set </p>
-            </a>
-        </div>
-
     </div>
-</div>
+</section>
 
 <footer>
     <div align="center">
@@ -96,17 +98,5 @@
         </script>
     </div>
 </footer>
-<script>
-    $(document).ready(function(){
-        @if(Session::has('msg'))
-        swal({
-            type: 'success',
-            title: 'Account Created Successfully!',
-            showConfirmButton: false,
-            timer: 2000
-        })
-        @endif
-    });
-</script>
 </body>
 </html>

@@ -1,0 +1,188 @@
+/*styles.css*/
+
+/* home page */
+header{background-color:#CB6D1E;}
+.main{background-color:#ffffff;}
+
+.topnav{
+  overflow:hidden;
+}
+
+.topnav a{
+  color: #ffffff;
+  display: inline-block;
+  text-align: center;
+  padding: 1px 16px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 17px;
+}
+
+.hoverColor:hover {
+  background-color: #ffffff;
+  color: #CB6D1E;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+.topnav .signupNav, .topnav .loginNav{
+  float: right;
+  padding-top: 15px;
+  padding-bottom: 20px;
+}
+
+.topnav .signupNav:hover{
+  background-color: #ffffff;
+  color: #CB6D1E;
+}
+
+.topnav .loginNav:hover{
+  background-color: #ffffff;
+  color: #CB6D1E;
+}
+
+.searchCol{
+	float: right;
+ 	padding-top: 15px;
+  	padding-bottom: 20px;
+  	padding-right: 20px;
+}
+
+.searchInput{
+	width: 90%;
+}
+
+.fa-search{
+	padding-right: 10px;
+}
+
+@media screen and (max-width: 870px) {
+  .topnav a:not(:first-child) {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+    padding-top: 15px;
+    font-size: 30px;
+  }
+   .searchCol{
+    display: none;
+  }
+}
+
+@media screen and (max-width: 870px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+
+.popDesc{
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.mostPopular h2{
+  text-align: center;
+  padding-top: 20px;
+}
+
+.popItemsSec{
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+.popItems{
+  border: 5px solid #CB6D1E;
+  text-decoration: none;
+  width: 100%;
+}
+
+.popItems:hover{
+  opacity: 0.5;
+}
+
+.popItemsDesc{
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 50px;
+  text-decoration: none;
+  color: #000000;
+}
+
+footer {
+  background-color: #CB6D1E;
+  padding:10px;
+  color: #ffffff;
+}
+
+/*Post items Page*/
+
+.postItem-imageSec{
+	margin-top: 10%;
+	margin-bottom: 10%;
+}
+
+.postItem-image{
+	width: 500px;
+	border: 3px solid #CB6D1E;
+}
+
+.uploadItem{
+	padding-top: 10px;
+}
+
+.postItem-content, .Item-content{
+	margin-top: 10%;
+	margin-bottom: 10%;
+}
+
+.postItemForm-title, .ItemDesc-title{
+	padding-bottom: 5%;
+}
+
+.form-group, .itemDesc-group{
+	margin-bottom: 5%;
+}
+
+.form-group label , .ItemTitle{
+	padding-right: 20px;
+}
+
+.item-submit{
+	float: right;
+	text-align: center;
+	margin-top: 10%;
+	display: inline-block;
+	background: #4292dc ;
+	color: #fff;
+	border-bottom: none;
+	width: auto;
+	padding: 12px 39px;
+	border-radius: 5px;
+	margin-top: 25px;
+	cursor: pointer; }
+	.form-submit:hover {
+	   background: #6dabe4; }
+
+.form-group input , .form-group select , .Item_Description{
+	width: 200px;
+}
+
+/* My Items Page */
+
+.myItems{
+	text-align: center;
+}
+
+

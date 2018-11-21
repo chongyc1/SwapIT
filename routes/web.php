@@ -23,6 +23,9 @@ Route::post('/register', 'Auth\RegisterController@register');
 
 Route::get('/post-item','ItemController@show');
 Route::post('/post-item','ItemController@post');
+Route::post('/save-item','ItemController@save');
+
+Route::get('/my-item','ItemController@myitem');
 
 
 Route::post('/logout', 'Auth\LoginController@logout');

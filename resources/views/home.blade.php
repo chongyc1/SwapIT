@@ -13,6 +13,8 @@
     <title>Home Page</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="{{asset('frontend/js/bootstrap.min.js')}}"></script>
+    <link rel="stylesheet" type="text/css" href="{{asset('frontend/style.css')}}">
+
 
 </head>
 
@@ -22,12 +24,12 @@
         <a href="index.html">
             <img src="{{asset('frontend/images/SwapitLogo_horizontal.png')}}" alt="SWAPIT Logo" width="200">
         </a>
-        <a href="#categories" class="hoverColor">Categories</a>
+        <a href="post-item" class="hoverColor">Post Item</a>
         <a href="#trending" class="hoverColor">Trending</a>
         <a href="#about" class="hoverColor">About</a>
         <a href="#contactUs" class="hoverColor">Contact Us</a>
         <a class="loginNav" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">{{Auth::user()->name}}</a>
+                                                     document.getElementById('logout-form').submit();">Hello, {{Auth::user()->name}}</a>
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
             <i class="fa fa-bars"></i>
         </a>
