@@ -1,0 +1,77 @@
+<!--signUp.html-->
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href ="css/bootstrap-social.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="signupStyles.css">
+    <title>Home Page</title>
+  </head>
+
+  <body class="main">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    </script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <header>
+
+    </header>
+
+    <div class="main">
+
+        <!-- Sign up form -->
+        <section class="signup">
+            <div class="container">
+                <div class="signup-content">
+                    <div class="signup-form">
+                        <h2 class="signupForm-title">Sign up</h2>
+                        <form method="POST" class="register-form" id="register-form">
+                            <div class="form-group">
+                                <label for="name"><i class="fa fa-user"></i></label>
+                                <input type="text" name="fullname" id="fullname" placeholder="Your Full Name"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="email"><i class="fa fa-envelope"></i></label>
+                                <input type="email" name="email" id="email" placeholder="Your Email"/>
+                            </div>
+                             <div class="form-group">
+                                <label for="DOB"><i class="fa fa-birthday-cake"></i></label>
+                                <input type="Date" name="DOB" id="DOB" placeholder="Your Date Of Birth"/>
+                            </div>
+                            <div class="form-radio">
+                                <label class="radio-inline"><input type="radio" name="optradio" value="female" checked>Female</label>
+                                <label class="radio-inline"><input type="radio" name="optradio" value="male">Male</label>
+                            </div>
+                            <div class="form-group">
+                                <label for="pass"><i class="fa fa-lock"></i></label>
+                                <input type="password" name="pswd" id="pswd" placeholder="Password"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="re-pass"><i class="fa fa-lock"></i></label>
+                                <input type="password" name="confirmPswd" id="confirmPswd" placeholder="Confirm your password"/>
+                            </div>
+                            <div>
+                                <label class="checkbox-inline"><input type="checkbox" value="agreedTerm">I agree all the statements in Term of Service</label>
+                            </div>
+                            <div class="form-group form-button">
+                                <input type="submit" name="signup" id="signup" class="form-submit" value="Register"/>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="signup-image">
+                        <figure><img src="images/signupimg.png" alt="sing up image"></figure>
+                        <a href="login.html" class="signup-image-link">I already have an account.</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>
