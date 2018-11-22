@@ -1,4 +1,4 @@
-<!--postItem.html-->
+<!--myItems.html-->
 
 <html>
 <head>
@@ -47,30 +47,33 @@
     </script>
 </header>
 
-<section class="PostItem">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-md-6 col-lg-6 postItem-imageSec">
-                <h1>Step 1: Upload Image</h1>
-                <form action="post-item" method="POST" enctype="multipart/form-data">
-                    {{csrf_field()}}
 
-                    <input type="file" name="item" accept="image/*">
-                    <br/>
-                    <br/>
-                    <br/>
-
-                    <button>Upload</button>
-
-                </form>
+<section>
+    <div class="myItems">
+        <div class="container">
+            <div class="row">
+                <div class="colp-md-6">
+                    <h2>{{$item->item_title}}</h2>
+                </div>
+                <div class="col-md-6">
+                    <img src="{{asset('images')}}/{{$item->image_url}}" class="popItems" alt="white table" width="100px" height="100px">
+                </div>
             </div>
-
         </div>
+        <div style="margin-left: 50px">
+            <div class="row">
+                <h4>Item Description : {{$item->item_desc}}</h4>
+            </div>
+            <div class="row">
+                <h4>Item Category: {{$item->item_cat}}</h4>
+            </div>
+            <div class="row">
+                <h4>Item Period: {{$item->item_pred}} years</h4>
+            </div>
+        </div>
+
     </div>
 </section>
-
-
-
 
 <footer>
     <div align="center">
@@ -89,11 +92,5 @@
         </script>
     </div>
 </footer>
-
-
-
-<script>
-
-</script>
 </body>
 </html>

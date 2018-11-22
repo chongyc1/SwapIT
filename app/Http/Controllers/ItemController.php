@@ -104,5 +104,11 @@ class ItemController extends Controller
 
 
     }
+    public function showItem($id){
+        $r['item'] = DB::table('items')->where('id',$id)->first();
+
+        return view('item.item-display')->with($r);
+
+    }
 
 }

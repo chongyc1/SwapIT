@@ -26,6 +26,7 @@ Route::post('/post-item','ItemController@post');
 Route::post('/save-item','ItemController@save');
 
 Route::get('/my-item','ItemController@myitem');
+Route::get('/item/{id}','ItemController@showItem');
 
 
 Route::post('/logout', 'Auth\LoginController@logout');

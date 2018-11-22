@@ -22,13 +22,12 @@
 
 <header>
     <div class="topnav" id="myTopnav">
-        <a href="index.html">
+        <a href="/home">
             <img src="{{asset('frontend/images/SwapitLogo_horizontal.png')}}" alt="SWAPIT Logo" width="200">
         </a>
         <a href="post-item" class="hoverColor">Post Item</a>
-        <a href="#trending" class="hoverColor">Trending</a>
-        <a href="#about" class="hoverColor">About</a>
-        <a href="#contactUs" class="hoverColor">Contact Us</a>
+        <a href="my-item" class="hoverColor">My Item</a>
+        <a href="#about" class="hoverColor">History</a>
         <a class="loginNav" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">Hello, {{Auth::user()->name}}</a>
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
@@ -51,7 +50,7 @@
 
 <section>
     <div class="myItems">
-        <h2> MY ITEMS </h2>
+        <h2 style="text-align: center"> MY ITEMS </h2>
         <p class="popDesc"> All of your lovely babies here </p>
 
         @if(Session::has('msg'))
@@ -64,15 +63,14 @@
         <div class="row popItemsSec">
             @foreach($items as $item)
             <div class="col-sm-4 col-md-4 col-lg-4">
-                <a href="ItemDescription.html">
+                <a href="/item/{{$item['id']}}">
                     <img src="{{asset('images')}}/{{$item['image_url']}}" class="popItems" alt="white table" width="100px" height="100px">
                     <p class="popItemsDesc"> {{$item['item_title']}} </p>
                 </a>
             </div>
-
             @endforeach
             <div class="col-sm-4 col-md-4 col-lg-4">
-                <a href="postItem.html">
+                <a href="post-item">
                     <img src="{{asset('frontend/images/white.jpg')}}" class="popItems" alt="White" width="100px" height="100px">
                     <p class="popItemsDesc"> Add more items </p>
                 </a>

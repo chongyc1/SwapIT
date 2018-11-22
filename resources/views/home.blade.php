@@ -21,13 +21,12 @@
 <body class="main">
 <header>
     <div class="topnav" id="myTopnav">
-        <a href="index.html">
+        <a href="/home">
             <img src="{{asset('frontend/images/SwapitLogo_horizontal.png')}}" alt="SWAPIT Logo" width="200">
         </a>
         <a href="post-item" class="hoverColor">Post Item</a>
-        <a href="#trending" class="hoverColor">Trending</a>
-        <a href="#about" class="hoverColor">About</a>
-        <a href="#contactUs" class="hoverColor">Contact Us</a>
+        <a href="my-item" class="hoverColor">My Item</a>
+        <a href="#about" class="hoverColor">History</a>
         <a class="loginNav" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">Hello, {{Auth::user()->name}}</a>
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
@@ -50,9 +49,9 @@
     </script>
 </header>
 
-<div>
-    <img src="{{asset('frontend/images/coverPic.jpg')}}" alt="cover picture" width="100%">
-</div>
+{{--<div>--}}
+    {{--<img src="{{asset('frontend/images/coverPic.jpg')}}" alt="cover picture" width="100%">--}}
+{{--</div>--}}
 
 <div class="mostPopular">
     <h2> MOST POPULAR </h2>
