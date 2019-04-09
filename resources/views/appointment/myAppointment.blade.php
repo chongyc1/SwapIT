@@ -53,35 +53,34 @@
 
 	<div class="containerItem">
 		<div class="row">
+
 			<div class="col-sm-4 col-md-4">
 				<div class="item1">
 					<img src="{{asset('images')}}/{{$app['ownerItemURL']}}" class="postItem-image" alt="Bedside Table image">
 
 					<div class="itemTextContainer">
-					<h5 class="itemText">{{$app['ownerName']}}
-						@if($app['ownerID'] == Auth::user()->id)
-						**Your item
-						@endif
-					</h5>
-				</div>
+						<h5 class="itemText">{{$app['ownerName']}}
+							@if($app['ownerID'] == Auth::user()->id)
+							**Your item
+							@endif
+						</h5>
+					</div>
 				</div>
 			</div>
 
-				<div class="col-sm-4 col-md-4">
-						<span class="arrowBtwIcon">&#8644;</span>
-				</div>
+			<div class="col-sm-4 col-md-4">
+				<span class="arrowBtwIcon">&#8644;</span>
+			</div>
 
-					<div class="col-sm-4 col-md-4">
-						<div class="ApptItems">
-							<img src="{{asset('images')}}/{{$app['buyerItemURL']}}" class="postItem-image" alt="Bedside Table image">
-							<div class="itemTextContainer">
-							<h5 class="itemText">{{$app['buyerName']}}
-								@if($app['buyerID'] == Auth::user()->id)
-								**Your item
-								@endif
-							</h5>
-						</div>
-						</div>
+			<div class="col-sm-4 col-md-4">
+				<div class="ApptItems">
+					<img src="{{asset('images')}}/{{$app['buyerItemURL']}}" class="postItem-image" alt="Bedside Table image">
+					<div class="itemTextContainer">
+						<h5 class="itemText">{{$app['buyerName']}}
+							@if($app['buyerID'] == Auth::user()->id)
+							**Your item
+							@endif
+						</h5>
 					</div>
 				</div>
 
@@ -120,6 +119,7 @@
 				{{--</div>--}}
 
 			</div>
+		</div>
 
 			<!-- The Modal -->
 			<div id="apptModal" class="modal">
@@ -175,10 +175,11 @@
 				// 	margin: modal.style.display = "block";
 				// };
 
-				span.onclick = function() {
-					modal.style.display = "none";
-				};
-
+			<button class="btn btn-danger" id="myBtn">
+				Decline
+			</button>
+		</div>
+    
 				window.onclick = function(event) {
 					if (event.target == modal) {
 						modal.style.display = "none";
@@ -267,4 +268,4 @@
 			</div>
 		</footer>
 
-		</html>
+</html>
