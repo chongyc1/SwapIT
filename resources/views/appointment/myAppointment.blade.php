@@ -2,6 +2,11 @@
 
 <html>
 <head>
+
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="{{asset('/appointment/appointmentStyles.css')}}">
+	<script src="{{asset('library/sweetalert2/dist/sweetalert2.min.js')}}"></script>
+	<link rel="stylesheet" href="{{asset('library/sweetalert2/dist/sweetalert2.css')}}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="{{asset('frontend/css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('frontend/css/font-awesome.min.css')}}" rel="stylesheet">
@@ -42,10 +47,15 @@
 				@endif
 					</h5>
 				</div>
-
-				<button class="btn appoinmentBtn" id="myBtn">
-					View
-				</button>
+				@if($app['buyerID'] == Auth::user()->id)
+					<button class="btn appoinmentBtn" onclick="openModal('{{$app['ownerItemID']}}','{{$app['ownerID']}}','{{$app['appID']}}','b')">
+						View - You are buyer
+					</button>
+				@elseif($app['ownerID'] == Auth::user()->id)
+					<button class="btn appoinmentBtn" onclick="openModal('{{$app['buyerItemID']}}','{{$app['buyerID']}}','{{$app['appID']}}','o')">
+						View - You are owner
+					</button>
+				@endif
 			</div>
 			<hr>
 		@endforeach
@@ -77,48 +87,55 @@
 
 		<div class="modal-content">
 			<span class="close">&times;</span>
-			<h1>Item Details</h1>
+			<h1>Item For You</h1>
 			<div class="container">
-				<img src="#" class="imgItem" alt="MyItemImg">
+				<img class="imgItem" alt="MyItemImg" id="item_image_url" height="100px" width="100px">
 			</div> 
 
 			<div class="itemDetails">
 				<div class="details">
-					<p> Item Name: </p>
+					<p> Item Name: <span id="itemName"></span></p>
 				</div>
 				<div class="details">
-					<p> Description: </p>
+					<p> Description: <span id="itemDesc"></span> </p>
 				</div>
 				<div class="details">
-					<p> Category: </p>
+					<p> Category: <span id="itemCat"></span> </p>
 				</div>
 				<div class="details">
-					<p> Owner: </p>
+					<p> Owner:  <span id="ownerName"></span></p>
 				</div>
 				<div class="details">
-					<p> Owner email: </p>
+					<p> Owner email: <span id="ownerEmail"></span> </p>
+				</div>
+				<div class="details">
+					<p> Status: <span id="status"></span> </p>
 				</div>
 
-			<button class="btn btn-success" id="myBtn">
-				Approve
-			</button>
+				<input type="hidden" id="appID">
 
-			<button class="btn btn-danger" id="myBtn">
-				Decline
-			</button>
+				<button class="btn btn-danger chgStatusBtn" style="display:none" onclick="updStatus('A')">
+					Approve
+				</button>
+
+				<button class="btn btn-danger chgStatusBtn"  style="display:none" onclick="updStatus('D')">
+					Decline
+				</button>
+
 			</div>
 
 		</div>
 	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
 	<script>
 		var modal = document.getElementById('apptModal');
 		var btn = document.getElementById("myBtn");
 		var span = document.getElementsByClassName("close")[0];
 
-		btn.onclick = function() {
-			margin: modal.style.display = "block";
-		};
+		// btn.onclick = function() {
+		// 	margin: modal.style.display = "block";
+		// };
 
 		span.onclick = function() {
 			modal.style.display = "none";
@@ -128,6 +145,78 @@
 			if (event.target == modal) {
 				modal.style.display = "none";
 			}
+		}
+
+
+		$(document).ready(function(){
+		})
+
+		function openModal(itemID,userID,appID,type){
+            margin: modal.style.display = "block";
+            $.ajax({
+				type : 'post',
+				url : 'getAppDetail',
+				data : {
+				    _token : '{{csrf_token()}}',
+				    itemID : itemID,
+					userID : userID,
+					appID : appID,
+					type : type,
+				},
+				success:function(d){
+				    let url = "{{asset('images')}}/"+ d.item.image_url;
+				    $('#item_image_url').attr('src',url);
+				    $('#itemName').text(d.item.item_title);
+				    $('#itemDesc').text(d.item.item_desc);
+				    $('#itemCat').text(d.item.catName);
+				    $('#ownerName').text(d.users.name);
+				    $('#ownerEmail').text(d.users.email);
+                    $('#status').text(d.app.status);
+                    $('#appID').val(d.app.id);
+				    // console.log(d);
+				    if(d.type === 'b'){
+				        $('.chgStatusBtn').css('display','none');
+					}
+					else{
+					    if(d.app.status == 'APPROVED' || d.app.status == 'DECLINED'){
+                            console.log('wew');
+                        }
+                        else{
+                            $('.chgStatusBtn').css('display','initial');
+
+                        }
+                    }
+				    // console.log(d.type);
+				}
+
+			})
+
+		}
+
+		function updStatus(status){
+		    let appID = $('#appID').val();
+		    console.log(appID);
+            $.ajax({
+                type : 'post',
+                url : 'updStatus',
+                data : {
+                    _token : '{{csrf_token()}}',
+                    appID : appID,
+                   	status : status,
+                },
+				success:function(d){
+                    swal({
+                        type: 'success',
+                        title: 'Status Updated!',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                    $('#status').text(d);
+                    $('.chgStatusBtn').css('display','none');
+
+
+                }
+			});
 		}
 	</script>
 

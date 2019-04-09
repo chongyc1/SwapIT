@@ -134,7 +134,11 @@ class ItemController extends Controller
     public function searchItem(){
 
         $search = Input::get ('search');
-        $items['items'] = DB::table('items') ->where('item_desc','LIKE','%'.$search.'%') -> get()-> toArray();
+        $items['items'] = DB::table('items')
+            ->orWhere('item_desc','LIKE','%'.$search.'%')
+            ->orWhere('item_title','LIKE','%'.$search.'%')
+            -> get()
+            -> toArray();
 
         return view('item.search-item')->with($items);
     

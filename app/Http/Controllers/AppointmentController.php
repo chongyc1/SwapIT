@@ -134,4 +134,33 @@ class AppointmentController extends Controller
 
     	return view('appointment.myAppointment')->with($item);
     }
+
+    public function showDetails(Request $request){
+        $ret['users'] = DB::table('users')->where('id',$request->userID)->first();
+        $ret['app'] = DB::table('appointments')->where('id',$request->appID)->first();
+        $ret['item'] = DB::table('items')
+            ->join('category','items.item_cat','=','category.id')
+            ->where('items.id',$request->itemID)
+            -> first(
+                [   'items.id',
+                    'items.item_title',
+                    'items.item_desc',
+                    'items.item_cat',
+                    'items.item_pred',
+                    'items.image_url',
+                    'items.owner',
+                    'category.catName',
+                ]
+            );
+        $ret['type'] = $request->type;
+
+        return response($ret);
+    }
+
+    public function updStatus(Request $request){
+        $appID = $request->appID;
+        $status = $request->status == 'A' ? 'APPROVED' : 'DECLINED';
+        DB::table('appointments')->where('id',$appID)->update(['status' => $status]);
+        return response($status);
+    }
 }
