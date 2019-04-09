@@ -51,7 +51,7 @@
   right: 0;
   bottom: 0;
   top: 0;
-  background: rgba(133, 104, 73, 0.78);
+  background: #CB6D1E;
 }
 
 .booking-form>form {
@@ -156,7 +156,7 @@
 }
 
 .booking-form .form-label {
-  color: #856849;
+  color: #CB6D1E;
   text-transform: uppercase;
   line-height: 24px;
   height: 24px;
@@ -173,7 +173,7 @@
   display: block;
   width: 100%;
   color: #fff;
-  background-color: rgba(133, 104, 73, 0.9);
+  background-color: #CB6D1E;
   font-weight: 700;
   font-size: 18px;
   border: none;
