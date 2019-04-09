@@ -16,8 +16,15 @@ class AppointmentController extends Controller
             'itemID' => $g[2],
         ];
 
-        $item['item'] = DB::table('items')->where('id',$g[2])->first();
-        $item['itemList'] = DB::table('items')->where('owner',Auth::user()->id)->get()->toArray();
+        $item['item'] = DB::table('items')
+            ->where('id',$g[2])
+            ->first();
+
+        $item['itemList'] = DB::table('items')
+            ->where('owner',Auth::user()->id)
+            ->where('onTrade',0)
+            ->get()
+            ->toArray();
 
 
 //        dd($item);
