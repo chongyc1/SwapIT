@@ -186,4 +186,14 @@ footer {
 	text-align: center;
 }
 
+/* item-display page */
+.appoinmentBtn{
+  background-color: #660198;
+  color: #fff;
+}
+
+  .appoinmentBtn:hover{
+    background-color: #5E2D79;
+    color: #fff;
+  }
 

@@ -27,7 +27,7 @@
         </a>
         <a href="/post-item" class="hoverColor">Post Item</a>
         <a href="/my-item" class="hoverColor">My Item</a>
-        <a href="#about" class="hoverColor">History</a>
+        <a href="#about" class="hoverColor">My Appointment</a>
         <a class="loginNav" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">Hello, {{Auth::user()->name}}</a>
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
@@ -86,7 +86,7 @@
 
                     @endif
                     @if($item->owner != Auth::user()->id)
-                        <a href="/setAppointment/{{$item->owner}}&{{Auth::user()->id}}&{{$item->id}}" class="btn appoinmentBtn">
+                        <a href="/setAppointment/{{$item->owner}}&{{Auth::user()->id}}&{{$item->id}}" class="btn btn-default appoinmentBtn">
                             Set Appointment
                         </a>
                     @endif
