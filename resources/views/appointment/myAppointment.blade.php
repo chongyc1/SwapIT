@@ -51,141 +51,145 @@
 
 	<div class="containerItem">
 		<div class="row">
+
 			<div class="col-sm-4 col-md-4">
 				<div class="item1">
 					<img src="{{asset('images')}}/{{$app['ownerItemURL']}}" class="postItem-image" alt="Bedside Table image">
 
 					<div class="itemTextContainer">
-					<h5 class="itemText">{{$app['ownerName']}}
-						@if($app['ownerID'] == Auth::user()->id)
-						**Your item
-						@endif
-					</h5>
-				</div>
-				</div>
-			</div>
-
-				<div class="col-sm-4 col-md-4">
-						<span class="arrowBtwIcon">&#8644;</span>
-				</div>
-
-					<div class="col-sm-4 col-md-4">
-						<div class="ApptItems">
-							<img src="{{asset('images')}}/{{$app['buyerItemURL']}}" class="postItem-image" alt="Bedside Table image">
-							<div class="itemTextContainer">
-							<h5 class="itemText">{{$app['buyerName']}}
-								@if($app['buyerID'] == Auth::user()->id)
-								**Your item
-								@endif
-							</h5>
-						</div>
-						</div>
+						<h5 class="itemText">{{$app['ownerName']}}
+							@if($app['ownerID'] == Auth::user()->id)
+							**Your item
+							@endif
+						</h5>
 					</div>
 				</div>
-
-					<button class="btn btn-success detailsBtn" id="myBtn">
-						View
-					</button>
-				</div>
-				<hr>
-				@endforeach
-				{{--<div class="containerItem">--}}
-					{{--<div class="item1">--}}
-						{{--<img src="#" class="imgItem" alt="MyItemImg">--}}
-					{{--</div>--}}
-
-					{{--<div class="arrowBtw">--}}
-						{{--<span style='font-size:50px;'>&#8644;</span>--}}
-					{{--</div>--}}
-
-					{{--<div class="item1">--}}
-						{{--<img src="#" class="imgItem" alt="SellerItemImg">--}}
-					{{--</div>--}}
-
-					{{--<button class="btn appoinmentBtn" id="myBtn">--}}
-						{{--View--}}
-					{{--</button>--}}
-				{{--</div>--}}
-
 			</div>
 
-			<!-- The Modal -->
-			<div id="apptModal" class="modal">
+			<div class="col-sm-4 col-md-4">
+				<span class="arrowBtwIcon">&#8644;</span>
+			</div>
 
-				<div class="modal-content">
-					<span class="close">&times;</span>
-					<h1>Item Details</h1>
-					<div class="container">
-						<img src="#" class="imgItem" alt="MyItemImg">
-					</div> 
-
-					<div class="itemDetails">
-						<div class="details">
-							<p> Item Name: </p>
-						</div>
-						<div class="details">
-							<p> Description: </p>
-						</div>
-						<div class="details">
-							<p> Category: </p>
-						</div>
-						<div class="details">
-							<p> Owner: </p>
-						</div>
-						<div class="details">
-							<p> Owner email: </p>
-						</div>
-
-						<button class="btn btn-success" id="myBtn">
-							Approve
-						</button>
-
-						<button class="btn btn-danger" id="myBtn">
-							Decline
-						</button>
+			<div class="col-sm-4 col-md-4">
+				<div class="ApptItems">
+					<img src="{{asset('images')}}/{{$app['buyerItemURL']}}" class="postItem-image" alt="Bedside Table image">
+					<div class="itemTextContainer">
+						<h5 class="itemText">{{$app['buyerName']}}
+							@if($app['buyerID'] == Auth::user()->id)
+							**Your item
+							@endif
+						</h5>
 					</div>
-
 				</div>
 			</div>
+		</div>
 
-			<script>
-				var modal = document.getElementById('apptModal');
-				var btn = document.getElementById("myBtn");
-				var span = document.getElementsByClassName("close")[0];
+		<button class="btn btn-success detailsBtn" id="myBtn">
+			View
+		</button>
+	</div>
+	<hr>
+	@endforeach
+	{{--<div class="containerItem">--}}
+		{{--<div class="item1">--}}
+			{{--<img src="#" class="imgItem" alt="MyItemImg">--}}
+		{{--</div>--}}
 
-				btn.onclick = function() {
-					margin: modal.style.display = "block";
-				};
+		{{--<div class="arrowBtw">--}}
+			{{--<span style='font-size:50px;'>&#8644;</span>--}}
+		{{--</div>--}}
 
-				span.onclick = function() {
-					modal.style.display = "none";
-				};
+		{{--<div class="item1">--}}
+			{{--<img src="#" class="imgItem" alt="SellerItemImg">--}}
+		{{--</div>--}}
 
-				window.onclick = function(event) {
-					if (event.target == modal) {
-						modal.style.display = "none";
-					}
-				}
-			</script>
+		{{--<button class="btn appoinmentBtn" id="myBtn">--}}
+			{{--View--}}
+		{{--</button>--}}
+	{{--</div>--}}
 
-		</body>
+</div>
 
-		<footer>
-			<div align="center">
-				Copyright &copy; SWAPIT 2018
-			</div><br />
-			<div align="center">
-				<a class="btn btn-social-icon btn-linkedin" href="https://www.linkedin.com/"> <span class="fa fa-linkedin"></span></a>
-				<a class="btn btn-social-icon btn-facebook" href="https://www.facebook.com/"> <span class="fa fa-facebook"></span></a>
-				<a class="btn btn-social-icon btn-instagram" href="https://www.instagram.com/"> <span class="fa fa-instagram"></span></a>
-				<a class="btn btn-social-icon btn-twitter" href="https://twitter.com/"> <span class="fa fa-twitter"></span></a>
+<!-- The Modal -->
+<div id="apptModal" class="modal">
+
+	<div class="modal-content">
+		<span class="close">&times;</span>
+		<h1>Item Details</h1>
+		<div class="ModalImgcontainer">
+			<img src="#" class="imgItem" alt="MyItemImg">
+		</div> 
+
+		<div class="itemDetails">
+			<div class="Modaldetails">
+				<p> Item Name: </p>
 			</div>
-			<br />
-			<div align="center">
-				<script type="text/javascript" language="JavaScript">
-					document.write("Last Modified : " + document.lastModified);
-				</script>
+			<div class="Modaldetails">
+				<p> Description: </p>
 			</div>
-		</footer>
+			<div class="Modaldetails">
+				<p> Category: </p>
+			</div>
+			<div class="Modaldetails">
+				<p> Owner: </p>
+			</div>
+			<div class="Modaldetails">
+				<p> Owner email: </p>
+			</div>
 
-		</html>
+		</div>
+
+		<div class="btnClass">
+			<button class="btn btn-success" id="myBtn">
+				Approve
+			</button>
+
+			<button class="btn btn-danger" id="myBtn">
+				Decline
+			</button>
+		</div>
+
+	</div>
+</div>
+
+<script>
+	var modal = document.getElementById('apptModal');
+	var btn = document.getElementById("myBtn");
+	var span = document.getElementsByClassName("close")[0];
+
+	btn.onclick = function() {
+		margin: modal.style.display = "block";
+	};
+
+	span.onclick = function() {
+		modal.style.display = "none";
+	};
+
+	window.onclick = function(event) {
+		if (event.target == modal) {
+			modal.style.display = "none";
+		}
+	}
+</script>
+
+</body>
+
+<footer>
+	<div align="center">
+		Copyright &copy; SWAPIT 2018
+	</div><br />
+	<div align="center">
+		<a class="btn btn-social-icon btn-linkedin" href="https://www.linkedin.com/"> <span class="fa fa-linkedin"></span></a>
+		<a class="btn btn-social-icon btn-facebook" href="https://www.facebook.com/"> <span class="fa fa-facebook"></span></a>
+		<a class="btn btn-social-icon btn-instagram" href="https://www.instagram.com/"> <span class="fa fa-instagram"></span></a>
+		<a class="btn btn-social-icon btn-twitter" href="https://twitter.com/"> <span class="fa fa-twitter"></span></a>
+	</div>
+	<br />
+	<div align="center">
+		<script type="text/javascript" language="JavaScript">
+			document.write("Last Modified : " + document.lastModified);
+		</script>
+	</div>
+</footer>
+
+</html>

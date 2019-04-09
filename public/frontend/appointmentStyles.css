@@ -295,3 +295,18 @@ margin-left: 25%;
     text-decoration: none;
     cursor: pointer;
   }
+
+  .ModalImgcontainer{
+    width: 300px;
+  }
+
+  .Modaldetails{
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+  }
+
+  .btnClass{
+    float: right;
+  }
