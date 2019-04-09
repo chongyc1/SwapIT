@@ -153,6 +153,7 @@
   display: block;
   -webkit-transform: rotate(90deg);
   transform: rotate(90deg);
+  font-size: 100px;
 }
 
 .booking-form .form-label {
@@ -210,43 +211,87 @@ margin-top: 20%;
 margin-left: 25%;
 }
 
+/*myAppoinment Page styles*/
+.containerItem{
+  margin-left: 10%;
+  margin-right: 10%;
+  background-color: rgba(133, 104, 73, 0.33);
+  padding:5%;
+}
+
+.postItem-imageSec{
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+
+.postItem-image{
+  width: 300px;
+  height: 300px;
+  border: 3px solid #CB6D1E;
+}
+
+.arrowBtwIcon{
+  font-size: 150px;
+  margin-left: 70px;
+}
+
+.itemText{
+    font-family: 'Playfair Display', serif;
+    font-size: 25px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.detailsBtn{
+  font-size: 20px;
+  float: right;
+  width: 150px;
+  margin-top: 20px;
+}
+
 
 /*myAppoinment modal styles*/
-
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+.bodyContainer{
+  padding-right: 30px;
+  padding-left: 30px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
-/* Modal Content */
-.modal-content {
-  background-color: #fefefe;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-}
+  .modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    padding-top: 100px; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4);
+  }
 
-/* The Close Button */
-.close {
-  color: #aaaaaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
+  /* Modal Content */
+  .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
 
-.close:hover,
-.close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-}
+  /* The Close Button */
+  .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
