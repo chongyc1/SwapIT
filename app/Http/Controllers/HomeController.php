@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $item['items'] = DB::table('items')->orderBy('clicked','DESC')->limit(6)->get()->toArray();
+        $item['items'] = DB::table('items')->where('onTrade',0)->orderBy('clicked','DESC')->limit(6)->get()->toArray();
         $cat['categories'] = DB::table('category')->get()->toArray();
 //        dd($item);
         return view('home')

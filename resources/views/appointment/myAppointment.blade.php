@@ -11,24 +11,56 @@
 	<h1> My Appointment </h1>
 
 	<div class="container">
-		<div class="containerItem">
-			<div class="item1">
-				<img src="#" class="imgItem" alt="MyItemImg">
+		@foreach($app_list as $app)
+			<div class="containerItem">
+				<div class="item1">
+					<img src="{{asset('images')}}/{{$app['ownerItemURL']}}" class="postItem-image" alt="Bedside Table image" width="100px" height="100px">
+					<h5>{{$app['ownerName']}}
+					@if($app['ownerID'] == Auth::user()->id)
+						**Your item
+					@endif
+					</h5>
+				</div>
+				<div class="arrowBtw">
+					<span style='font-size:50px;'>&#8644;</span>
+				</div>
+
+				<div class="item1">
+					<img src="{{asset('images')}}/{{$app['buyerItemURL']}}" class="postItem-image" alt="Bedside Table image"  width="100px" height="100px">
+					<h5>{{$app['buyerName']}}
+				@if($app['buyerID'] == Auth::user()->id)
+					**Your item
+				@endif
+					</h5>
+				</div>
+
+				<button class="btn appoinmentBtn" id="myBtn">
+					View
+				</button>
 			</div>
+			<hr>
+		@endforeach
+		{{--<div class="containerItem">--}}
+			{{--<div class="item1">--}}
+				{{--<img src="#" class="imgItem" alt="MyItemImg">--}}
+			{{--</div>--}}
 
-			<div class="arrowBtw">
-				<span style='font-size:50px;'>&#8644;</span>
-			</div>
+			{{--<div class="arrowBtw">--}}
+				{{--<span style='font-size:50px;'>&#8644;</span>--}}
+			{{--</div>--}}
 
-			<div class="item1">
-				<img src="#" class="imgItem" alt="SellerItemImg">
-			</div>
+			{{--<div class="item1">--}}
+				{{--<img src="#" class="imgItem" alt="SellerItemImg">--}}
+			{{--</div>--}}
 
-			<button class="btn appoinmentBtn" id="myBtn">
-				View
-			</button>
+			{{--<button class="btn appoinmentBtn" id="myBtn">--}}
+				{{--View--}}
+			{{--</button>--}}
+		{{--</div>--}}
 
-		</div>
+
+
+
 	</div>
 
 	<!-- The Modal -->
@@ -68,7 +100,6 @@
 			</div>
 
 		</div>
-
 	</div>
 
 	<script>
@@ -78,11 +109,11 @@
 
 		btn.onclick = function() {
 			margin: modal.style.display = "block";
-		}
+		};
 
 		span.onclick = function() {
 			modal.style.display = "none";
-		}
+		};
 
 		window.onclick = function(event) {
 			if (event.target == modal) {
