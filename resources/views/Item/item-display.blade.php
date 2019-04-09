@@ -86,7 +86,7 @@
 
                     @endif
                     @if($item->owner != Auth::user()->id)
-                        <a href="/setAppointment" class="btn appoinmentBtn">
+                        <a href="/setAppointment/{{$item->owner}}&{{Auth::user()->id}}&{{$item->id}}" class="btn appoinmentBtn">
                             Set Appointment
                         </a>
                     @endif
