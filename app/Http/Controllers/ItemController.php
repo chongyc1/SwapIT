@@ -119,6 +119,7 @@ class ItemController extends Controller
                     'items.item_pred',
                     'items.image_url',
                     'items.owner',
+                    'items.onTrade',
                     'category.catName',
                     'users.name',
                     'users.id as userID',
