@@ -102,7 +102,7 @@
         @foreach($items as $item)
         @if(Auth::user()->id != $item->owner)
             <div class="col-sm-4 col-md-4 col-lg-4">
-                <a href="/item/{{$item->id}}">
+                <a href="/item/{{$item->id}}" onclick="addItemClick('{{$item->id}}')">
                     <img src="{{asset('images/'.$item->image_url)}}" class="popItems" alt="Phone Case" width="300px" height="300px">
                     <p class="popItemsDesc"> {{$item->item_title}}</p>
                 </a>
@@ -219,6 +219,17 @@
                 }
             });
             window.location.href = '/category/' + id;
+        }
+
+        function addItemClick(id){
+            $.ajax({
+                url : '/itemCount',
+                type : 'post',
+                data : {
+                    '_token' : '{{csrf_token()}}',
+                    'id' : id,
+                }
+            });
         }
 
         function gotoChat(owner,buyer){

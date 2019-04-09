@@ -54,7 +54,6 @@
                 <img src="{{asset('images')}}/{{$item->image_url}}" class="postItem-image" alt="Bedside Table image" width="450px">
             </div>
 
-
             <div class=" col-xs-12 col-md-4 col-lg-5 col-md-offset-1 Item-content">
                 <h2 class="ItemDesc-title">Item Description</h2>
                 <div class="itemDesc-group">
@@ -82,11 +81,15 @@
                 <div class="btnContainer">
                     <a href="/my-item" class="btn btn-primary" >Go back</a>
 
-                    <button class="btn btn-success" type="button" id="contactBtn">Contact {{$item->name}}</button>
+                    @if($item->owner != Auth::user()->id)
+                        <button class="btn btn-success" type="button" id="contactBtn">Contact {{$item->name}}</button>
 
-                    <a href="/setAppointment" class="btn appoinmentBtn"> 
-                        Set Appoinment
-                    </a>
+                    @endif
+                    @if($item->owner != Auth::user()->id)
+                        <a href="/setAppointment" class="btn appoinmentBtn">
+                            Set Appointment
+                        </a>
+                    @endif
                    
             </div>
 
