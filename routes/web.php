@@ -40,6 +40,10 @@ Route::get('/category/{id}', 'CategoryController@index');
 Route::post('/categoryCount','CategoryController@clicked');
 
 
+Route::get('/setAppointment', 'AppointmentController@index');
+
+
+
 Route::post('/logout', 'Auth\LoginController@logout');
 Route::get('/logout',function (){
     return redirect()->back();
