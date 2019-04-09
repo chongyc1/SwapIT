@@ -26,7 +26,7 @@
         </a>
         <a href="post-item" class="hoverColor">Post Item</a>
         <a href="my-item" class="hoverColor">My Item</a>
-        <a href="#about" class="hoverColor">History</a>
+        <a href="#about" class="hoverColor">My Appointment</a>
 
          <form class="searchForm" action="/search" method="POST" role="search" >
             {{ csrf_field() }}
