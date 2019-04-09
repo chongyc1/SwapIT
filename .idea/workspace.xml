@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b0c83636-3ca4-4255-8187-f6000a6e9187" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AppointmentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AppointmentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ItemController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ItemController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Item/item-display.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Item/item-display.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Item/post-item.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Item/post-item.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -86,7 +82,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="1" />
-          <entry key="php" value="6945" />
+          <entry key="php" value="6960" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -94,7 +90,7 @@
           <entry key="Blade" value="4662" />
           <entry key="CSS" value="1" />
           <entry key="HTML" value="3" />
-          <entry key="PHP" value="2280" />
+          <entry key="PHP" value="2295" />
         </counts>
       </usages-collector>
     </session>
@@ -104,8 +100,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AppointmentController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="28" column="25" lean-forward="true" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
+            <state relative-caret-position="540">
+              <caret line="36" column="8" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -377,12 +373,12 @@
       <workItem from="1552011355105" duration="197000" />
       <workItem from="1554711619541" duration="5160000" />
       <workItem from="1554735770475" duration="4588000" />
-      <workItem from="1554817557431" duration="1536000" />
+      <workItem from="1554817557431" duration="1770000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27317000" />
+    <option name="totallyTimeSpent" value="27551000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="804" extended-state="0" />
@@ -624,8 +620,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AppointmentController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="25" lean-forward="true" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
+        <state relative-caret-position="540">
+          <caret line="36" column="8" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="8" />
         </state>
       </provider>
     </entry>

@@ -33,5 +33,7 @@ class AppointmentController extends Controller
         dd('DONE');
     }
 
-    public function upd
+    public function upd(){
+        
+    }
 }
