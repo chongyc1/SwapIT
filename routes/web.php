@@ -40,8 +40,10 @@ Route::get('/category/{id}', 'CategoryController@index');
 Route::post('/categoryCount','CategoryController@clicked');
 
 
-Route::get('/setAppointment', 'AppointmentController@index');
+Route::get('/setAppointment/{params}', 'AppointmentController@index');
 Route::get('/myAppointment', 'AppointmentController@show');
+
+Route::post('/saveAppointment','AppointmentController@setAppointment');
 
 
 Route::post('/logout', 'Auth\LoginController@logout');

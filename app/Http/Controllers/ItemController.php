@@ -87,6 +87,8 @@ class ItemController extends Controller
             'item_pred' => $request->itemPeriod,
             'image_url' => $request->img,
             'owner' => Auth::user()->id,
+            'clicked' => 0,
+            'onTrade' => 0,
         ]);
 
         Session::flash('msg','Item Post Successfully');
