@@ -92,6 +92,7 @@
                                 Set Appointment
                             </a>
                     @endif
+                    @endif
                    
             </div>
 
