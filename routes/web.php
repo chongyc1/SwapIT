@@ -43,6 +43,10 @@ Route::post('/categoryCount','CategoryController@clicked');
 Route::get('/setAppointment/{params}', 'AppointmentController@index');
 Route::get('/myAppointment', 'AppointmentController@show');
 
+
+Route::post('/getAppDetail','AppointmentController@showDetails');
+Route::post('/updStatus','AppointmentController@updStatus');
+
 Route::post('/saveAppointment','AppointmentController@setAppointment');
 
 
