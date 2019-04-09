@@ -35,7 +35,6 @@
   top: -25px;
   bottom: -25px;
   width: 400px;
-  background-image: url('../img/background.jpg');
   background-size: cover;
   background-position: center;
   padding: 25px;
@@ -202,6 +201,13 @@
   .booking-form>form {
     margin-left: 0px;
   }
+}
+
+.calendarIcon{
+font-size: 150px;
+color: #fff;
+margin-top: 20%;
+margin-left: 25%;
 }
 
 
