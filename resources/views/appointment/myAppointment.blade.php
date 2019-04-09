@@ -2,8 +2,17 @@
 
 <html>
 <head>
-	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="{{asset('/appointment/appointmentStyles.css')}}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="{{asset('frontend/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{asset('frontend/css/font-awesome.min.css')}}" rel="stylesheet">
+    <link href ="{{asset('frontend/css/bootstrap-social.css')}}" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="{{asset('frontend/images/favicon.icon')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('frontend/appointmentStyles.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('frontend/indexStyles.css')}}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="{{asset('frontend/js/bootstrap.min.js')}}"></script>
+    <link rel="stylesheet" type="text/css" href="{{asset('frontend/styles.css')}}">
+    <title> My Appointment </title>
 </head>
 
 <body>
