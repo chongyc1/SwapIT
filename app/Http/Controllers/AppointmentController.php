@@ -36,4 +36,7 @@ class AppointmentController extends Controller
     public function upd(){
         
     }
+    public function show(){
+    	return view('appointment.myAppointment');
+    }
 }

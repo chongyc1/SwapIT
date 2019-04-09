@@ -41,7 +41,7 @@ Route::post('/categoryCount','CategoryController@clicked');
 
 
 Route::get('/setAppointment', 'AppointmentController@index');
-
+Route::get('/myAppointment', 'AppointmentController@show');
 
 
 Route::post('/logout', 'Auth\LoginController@logout');
