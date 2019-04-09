@@ -100,6 +100,7 @@
             View
         </button>
         @endif
+        @endif
     </div>
     <hr>
     @endforeach
