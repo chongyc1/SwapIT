@@ -79,9 +79,16 @@
                     <label class="Item_Description"> {{$item->item_pred}} (Years) </label>
                 </div>
 
-                <a href="/my-item" class="btn btn-primary" >Go back</a>
-                <button class="btn btn-success" type="button" id="contactBtn">Contact {{$item->name}}</button>
+                <div class="btnContainer">
+                    <a href="/my-item" class="btn btn-primary" >Go back</a>
 
+                    <button class="btn btn-success" type="button" id="contactBtn">Contact {{$item->name}}</button>
+
+                    <a href="/setAppointment" class="btn appoinmentBtn"> 
+                        Set Appoinment
+                    </a>
+                   
+            </div>
 
             </div>
         </div>
