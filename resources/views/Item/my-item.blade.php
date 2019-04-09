@@ -19,31 +19,31 @@
 <body class="main">
 
 <header>
-    <div class="topnav" id="myTopnav">
-        <a href="/home">
-            <img src="{{asset('frontend/images/SwapitLogo_horizontal.png')}}" alt="SWAPIT Logo" width="200">
-        </a>
-        <a href="post-item" class="hoverColor">Post Item</a>
-        <a href="my-item" class="hoverColor">My Item</a>
-        <a href="#about" class="hoverColor">History</a>
-        <a class="loginNav" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">Hello, {{Auth::user()->name}}</a>
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-            <i class="fa fa-bars"></i>
-        </a>
-    </div>
+        <div class="topnav" id="myTopnav">
+            <a href="/home">
+                <img src="{{asset('frontend/images/SwapitLogo_horizontal.png')}}" alt="SWAPIT Logo" width="200">
+            </a>
+            <a href="/post-item" class="hoverColor">Post Item</a>
+            <a href="/my-item" class="hoverColor">My Item</a>
+            <a href="/myAppointment" class="hoverColor">My Appointment</a>
+            <a class="loginNav" onclick="event.preventDefault();
+            document.getElementById('logout-form').submit();">Hello, {{Auth::user()->name}}</a>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
 
-    <script>
-        function myFunction() {
-            var x = document.getElementById("myTopnav");
-            if (x.className === "topnav") {
-                x.className += " responsive";
-            } else {
-                x.className = "topnav";
+        <script>
+            function myFunction() {
+                var x = document.getElementById("myTopnav");
+                if (x.className === "topnav") {
+                    x.className += " responsive";
+                } else {
+                    x.className = "topnav";
+                }
             }
-        }
-    </script>
-</header>
+        </script>
+    </header>
 
 
 <section>

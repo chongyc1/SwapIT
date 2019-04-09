@@ -296,17 +296,21 @@ margin-left: 25%;
     cursor: pointer;
   }
 
-  .ModalImgcontainer{
+  .imgItem{
     width: 300px;
+    height: 300px;
   }
 
   .Modaldetails{
     font-family: 'Playfair Display', serif;
     font-size: 20px;
     font-weight: bold;
-    padding: 10px;
+    padding: 5px;
+  }
+
+  .itemDetails{
+    margin-left: 20%;
   }
 
   .btnClass{
-    float: right;
-  }
+    margin-top: 10px;  }
