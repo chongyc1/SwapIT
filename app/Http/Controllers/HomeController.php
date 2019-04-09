@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $item['items'] = DB::table('items')->orderBy('clicked','DESC')->limit(6)->get()->toArray();
+        $cat['categories'] = DB::table('category')->get()->toArray();
+//        dd($item);
+        return view('home')
+            ->with($item)
+            ->with($cat);
+
     }
 }

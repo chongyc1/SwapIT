@@ -9,12 +9,10 @@
     <link href="{{asset('frontend/css/font-awesome.min.css')}}" rel="stylesheet">
     <link href ="{{asset('frontend/css/bootstrap-social.css')}}" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="{{asset('frontend/images/favicon.ico')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('frontend/style.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('frontend/indexStyles.css')}}">
     <title>Trader's Home Page</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="{{asset('frontend/js/bootstrap.min.js')}}"></script>
-    <link rel="stylesheet" type="text/css" href="{{asset('frontend/style.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('frontend/styles.css')}}">
 
 </head>
 
@@ -64,14 +62,14 @@
             @foreach($items as $item)
             <div class="col-sm-4 col-md-4 col-lg-4">
                 <a href="/item/{{$item['id']}}">
-                    <img src="{{asset('images')}}/{{$item['image_url']}}" class="popItems" alt="white table" width="100px" height="100px">
+                    <img src="{{asset('images')}}/{{$item['image_url']}}" class="popItems" alt="white table" height="400px">
                     <p class="popItemsDesc"> {{$item['item_title']}} </p>
                 </a>
             </div>
             @endforeach
             <div class="col-sm-4 col-md-4 col-lg-4">
                 <a href="post-item">
-                    <img src="{{asset('frontend/images/white.jpg')}}" class="popItems" alt="White" width="100px" height="100px">
+                    <img src="{{asset('frontend/images/white.jpg')}}" class="popItems" alt="White" height="400px">
                     <p class="popItemsDesc"> Add more items </p>
                 </a>
             </div>

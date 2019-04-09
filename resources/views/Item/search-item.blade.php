@@ -9,8 +9,6 @@
     <link href="{{asset('frontend/css/font-awesome.min.css')}}" rel="stylesheet">
     <link href ="{{asset('frontend/css/bootstrap-social.css')}}" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="{{asset('frontend/images/favicon.ico')}}">
-    {{--<link rel="stylesheet" type="text/css" href="{{asset('frontend/style.css')}}">--}}
-    <link rel="stylesheet" type="text/css" href="{{asset('frontend/indexStyles.css')}}">
     <title>Trader's Home Page</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="{{asset('frontend/js/bootstrap.min.js')}}"></script>
@@ -25,7 +23,7 @@
         <a href="/home">
             <img src="{{asset('frontend/images/SwapitLogo_horizontal.png')}}" alt="SWAPIT Logo" width="200">
         </a>
-        <a href="/post-item" class="hoverColor">Post Item</a>
+        <a href="post-item" class="hoverColor">Post Item</a>
         <a href="/my-item" class="hoverColor">My Item</a>
         <a href="#about" class="hoverColor">History</a>
         <a class="loginNav" onclick="event.preventDefault();
@@ -47,48 +45,32 @@
     </script>
 </header>
 
-<section class="ItemDesc">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-md-6 col-lg-6 postItem-imageSec">
-                <img src="{{asset('images')}}/{{$item->image_url}}" class="postItem-image" alt="Bedside Table image" width="450px">
+<section>
+    <div class="myItems">
+        <h2 style="text-align: center"> Search Results
+        @if(isset($catName))
+            of {{$catName}}
+        @else
+            :
+        @endif
+        </h2>
+
+        <div class="row popItemsSec">
+            @if(empty($items))
+                <h3 style="margin-top: 100px">No Record Found</h3>
+                <br><br><br><br><br><br><br><br><br><br><br><br>
+            @endif
+            @foreach($items as $item)
+
+            <div class="col-sm-4 col-md-4 col-lg-4">
+                <a onclick="addCountItem('{{$item->id}}')">
+                    <img src="{{asset('images')}}/{{$item->image_url}}" class="popItems" alt="white table" height="400px">
+                    <p class="popItemsDesc"> {{$item->item_title}} </p>
+                </a>
             </div>
-
-
-            <div class=" col-xs-12 col-md-4 col-lg-5 col-md-offset-1 Item-content">
-                <h2 class="ItemDesc-title">Item Description</h2>
-                <div class="itemDesc-group">
-                    <label class="ItemTitle"> Item Name &nbsp:  </label>
-                    <label class="Item_Description"> {{$item->item_title}} </label>
-                </div>
-                <div class="itemDesc-group">
-                    <label class="ItemTitle"> Description : </label>
-                    <label class="Item_Description"> {{$item->item_desc}} </label>
-                </div>
-                <div class="itemDesc-group">
-                    <label class="ItemTitle"> Category &nbsp &nbsp : </label>
-                    <label class="Item_Description"> {{$item->catName}} </label>
-                </div>
-                <div class="itemDesc-group">
-                    <label class="ItemTitle"> Owner &nbsp &nbsp : </label>
-                    <label class="Item_Description"> {{$item->name}} </label>
-                </div>
-
-                <div class="itemDesc-group">
-                    <label class="ItemTitle"> Item Period : </label>
-                    <label class="Item_Description"> {{$item->item_pred}} (Years) </label>
-                </div>
-
-                <a href="/my-item" class="btn btn-primary" >Go back</a>
-                <button class="btn btn-success" type="button" id="contactBtn">Contact {{$item->name}}</button>
-
-
-            </div>
-        </div>
+            @endforeach
     </div>
 </section>
-
-
 
 <footer>
     <div align="center">
@@ -109,14 +91,19 @@
 </footer>
 
 <script>
-    $(document).ready(function(){
-        $('#contactBtn').on('click',function(){
-            console.log(btoa('{{$item->name}}'));
-            let name = btoa('{{$item->name}}');
-            let userName = btoa('{{Auth::user()->name}}');
-            window.open("http://127.0.0.1:3000/"+name+"/"+userName + "/n", "", "width=405,height=602");
+    function addCountItem(id){
+        $.ajax({
+            url : '/itemCount',
+            type : 'post',
+            data : {
+                '_token' : '{{csrf_token()}}',
+                'id' : id,
+            }
         });
-    });
+        window.location.href =  '/item/'+id;
+
+
+    }
 </script>
 </body>
 </html>

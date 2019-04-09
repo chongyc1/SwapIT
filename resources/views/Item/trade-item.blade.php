@@ -9,7 +9,7 @@
     <link href="{{asset('frontend/css/font-awesome.min.css')}}" rel="stylesheet">
     <link href ="{{asset('frontend/css/bootstrap-social.css')}}" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="{{asset('frontend/images/favicon.ico')}}">
-    {{--<link rel="stylesheet" type="text/css" href="{{asset('frontend/style.css')}}">--}}
+    <link rel="stylesheet" type="text/css" href="{{asset('frontend/style.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('frontend/indexStyles.css')}}">
     <title>Trader's Home Page</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -51,37 +51,39 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-md-6 col-lg-6 postItem-imageSec">
-                <img src="{{asset('images')}}/{{$item->image_url}}" class="postItem-image" alt="Bedside Table image" width="450px">
+                <img src="http://127.0.0.1:8000/frontend/images/watch.jpg" class="postItem-image" alt="Bedside Table image" width="450px">
             </div>
 
 
             <div class=" col-xs-12 col-md-4 col-lg-5 col-md-offset-1 Item-content">
                 <h2 class="ItemDesc-title">Item Description</h2>
                 <div class="itemDesc-group">
-                    <label class="ItemTitle"> Item Name &nbsp:  </label>
-                    <label class="Item_Description"> {{$item->item_title}} </label>
+                    <label class="ItemTitle"> Item Name &nbsp: </label>
+                    <label class="Item_Description">Cluse Watch </label>
                 </div>
                 <div class="itemDesc-group">
-                    <label class="ItemTitle"> Description : </label>
-                    <label class="Item_Description"> {{$item->item_desc}} </label>
+                    <label class="ItemTitle"> Description :</label>
+                    <label class="Item_Description">A beautiful Watch</label>
                 </div>
                 <div class="itemDesc-group">
                     <label class="ItemTitle"> Category &nbsp &nbsp : </label>
-                    <label class="Item_Description"> {{$item->catName}} </label>
-                </div>
-                <div class="itemDesc-group">
-                    <label class="ItemTitle"> Owner &nbsp &nbsp : </label>
-                    <label class="Item_Description"> {{$item->name}} </label>
+                    <label class="Item_Description">Lifestyle</label>
+
                 </div>
 
                 <div class="itemDesc-group">
                     <label class="ItemTitle"> Item Period : </label>
-                    <label class="Item_Description"> {{$item->item_pred}} (Years) </label>
+                    <label class="Item_Description"> 1 Years </label>
                 </div>
 
-                <a href="/my-item" class="btn btn-primary" >Go back</a>
-                <button class="btn btn-success" type="button" id="contactBtn">Contact {{$item->name}}</button>
 
+                <div class="itemDesc-group">
+                    <label class="ItemTitle"> Item Owner : </label>
+                    <label class="Item_Description">yc</label>
+                </div>
+
+                <a onclick="history.back();" class="btn btn-primary" >Go back</a>
+                <button class="btn btn-success" type="button" id="contactBtn">Contact yc</button>
 
             </div>
         </div>
@@ -110,12 +112,9 @@
 
 <script>
     $(document).ready(function(){
-        $('#contactBtn').on('click',function(){
-            console.log(btoa('{{$item->name}}'));
-            let name = btoa('{{$item->name}}');
-            let userName = btoa('{{Auth::user()->name}}');
-            window.open("http://127.0.0.1:3000/"+name+"/"+userName + "/n", "", "width=405,height=602");
-        });
+       $('#contactBtn').on('click',function(){
+           window.open("http://127.0.0.1:3000/yc", "", "width=350px,height=700px");
+       });
     });
 </script>
 </body>

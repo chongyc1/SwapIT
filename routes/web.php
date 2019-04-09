@@ -20,13 +20,24 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/register', 'Auth\RegisterController@register');
 
+Route::post('/search', 'ItemController@searchItem');
+
 
 Route::get('/post-item','ItemController@show');
 Route::post('/post-item','ItemController@post');
 Route::post('/save-item','ItemController@save');
+Route::post('/itemCount','ItemController@clicked');
 
 Route::get('/my-item','ItemController@myitem');
 Route::get('/item/{id}','ItemController@showItem');
+
+Route::get('/tradeitem/{id}','ItemController@tradeItem');
+
+
+
+//Category Route
+Route::get('/category/{id}', 'CategoryController@index');
+Route::post('/categoryCount','CategoryController@clicked');
 
 
 Route::post('/logout', 'Auth\LoginController@logout');

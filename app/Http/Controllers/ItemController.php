@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Input;
 
 class ItemController extends Controller
 {
@@ -41,7 +42,7 @@ class ItemController extends Controller
         );
 
 
-        $filename = time().'.'.$im->getClientOriginalExtension();
+        $filename = time().'-'.rand(1000,1000000).'.'.$im->getClientOriginalExtension();
         $im->move(public_path('images'), $filename);
 
 
@@ -49,9 +50,6 @@ class ItemController extends Controller
             ->withData(json_encode($data))
             ->withContentType('application/json')
             ->post();
-
-
-
 
 
 //        echo '<img src="data:image/jpg;base64,'. $base64Image .'" />';
@@ -71,8 +69,9 @@ class ItemController extends Controller
             unset($x[count($x) - 1]);
 
             $item['imgUrl'] = $filename;
+            $cat['categories'] = DB::table('category')->get()->toArray();
 
-            return view('item.post-item')->with($item);
+            return view('item.post-item')->with($item)->with($cat);
 
         }else{
 
@@ -96,7 +95,7 @@ class ItemController extends Controller
     }
 
     public function myitem(){
-        $r = DB::table('items')->where('owner',Auth::user()->id)->get();
+        $r = DB::table('items')->where('owner',Auth::user()->id)->orderBy('id','DESC')->get();
 
         $ret['items'] = json_decode($r,true);
 
@@ -105,10 +104,47 @@ class ItemController extends Controller
 
     }
     public function showItem($id){
-        $r['item'] = DB::table('items')->where('id',$id)->first();
+        $r['item'] = DB::table('items')
+            ->join('category','items.item_cat','=','category.id')
+            ->join('users','items.owner','=','users.id')
+//            ->where('items.owner','!=',Auth::user()->id)
+            ->where('items.id',$id)
+            -> first(
+                [   'items.id',
+                    'items.item_title',
+                    'items.item_desc',
+                    'items.item_cat',
+                    'items.item_pred',
+                    'items.image_url',
+                    'items.owner',
+                    'category.catName',
+                    'users.name',
+                    'users.id as userID',
+                ]
+            );
+
+
 
         return view('item.item-display')->with($r);
 
+    }
+
+    public function searchItem(){
+
+        $search = Input::get ('search');
+        $items['items'] = DB::table('items') ->where('item_desc','LIKE','%'.$search.'%') -> get()-> toArray();
+
+        return view('item.search-item')->with($items);
+    
+    }
+
+    public function tradeItem($id){
+        return view('item.trade-item');
+    }
+
+    public function clicked(Request $request){
+        $d =DB::table('items')->where('id',$request->id)->increment('clicked');
+        return $request->id.' +1';
     }
 
 }

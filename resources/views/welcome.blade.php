@@ -8,7 +8,7 @@
     <link href="{{asset('frontend/css/font-awesome.min.css')}}" rel="stylesheet">
     <link href ="{{asset('frontend/css/bootstrap-social.css')}}" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="{{asset('frontend/images/favicon.ico')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('frontend/style.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('frontend/styles.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('frontend/indexStyles.css')}}">
     <title>Home Page</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -21,7 +21,7 @@
 <header>
     <div class="topnav" id="myTopnav">
         <a href="index.html">
-            <img src="http://54.255.234.19/swapit/resources/assets/images/SwapItLogo_horizontal.png" alt="SWAPIT Logo" width="200">
+            <img src="{{asset('frontend/images/SwapItLogo_horizontal.png')}}" alt="SWAPIT Logo" width="200">
         </a>
         <a href="#categories" class="hoverColor">Categories</a>
         <a href="#trending" class="hoverColor">Trending</a>

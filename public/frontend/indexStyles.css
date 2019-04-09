@@ -101,6 +101,39 @@ header{background-color:#CB6D1E;}
   color: #000000;
 }
 
+.searchForm{
+  display: inline;
+}
+
+.searchInput{
+  margin-left: 70px;
+  padding-left: 10px;
+  width: 400px;
+  border-radius: 22px;
+}
+
+.searchInput:hover{
+  background-color: #F0F0F0;
+}
+
+.searchInput:focus{
+  outline: none;
+}
+
+.searchButton {
+  width: 50px;
+  height: 25px;
+  border-radius: 22px;
+}
+
+  .searchButton:focus {
+    outline: none;
+  }
+
+  .searchButton:hover{
+    background-color: #F0F0F0;
+  }
+
 
 
 footer {

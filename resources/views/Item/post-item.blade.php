@@ -75,18 +75,21 @@
                             <label> Category &nbsp &nbsp : </label>
                             <select name="item_cat">
                                 <option value="">Select a Category</option>
-                                <option value="ElectronicDevice">Electronic Devices</option>
-                                <option value="ElectronicAccessories">Electronic Accessories</option>
-                                <option value="TV&HomeAppliance">TV and Home Appliance</option>
-                                <option value="Helath&Beauty">Health & Beauty</option>
-                                <option value="Babies&Toys">Babies & Toys</option>
-                                <option value="Groceries&Pets">Groceries & Pets</option>
-                                <option value="Home&LifeStyle">Home & LifeStyle</option>
-                                <option value="WomensLifestyle">Women's Lifestyle</option>
-                                <option value="MensLifestyle">Men's Lifestyle</option>
-                                <option value="FashionAccessories">Fashion Accessories</option>
-                                <option value="Sports&Travel">Sports & Travel</option>
-                                <option value="Automotive&Motorcycles">Automotive & Motorcycles</option>
+                                @foreach($categories as $cat)
+                                    <option value="{{$cat->id}}">{{$cat->catName}}</option>
+                                @endforeach
+                                {{--<option value="">Electronic Devices</option>--}}
+                                {{--<option value="">Electronic Accessories</option>--}}
+                                {{--<option value="">TV and Home Appliance</option>--}}
+                                {{--<option value="">Health & Beauty</option>--}}
+                                {{--<option value="">Babies & Toys</option>--}}
+                                {{--<option value="">Groceries & Pets</option>--}}
+                                {{--<option value="">Home & LifeStyle</option>--}}
+                                {{--<option value="">Women's Lifestyle</option>--}}
+                                {{--<option value="">Men's Lifestyle</option>--}}
+                                {{--<option value="">Fashion Accessories</option>--}}
+                                {{--<option value="">Sports & Travel</option>--}}
+                                {{--<option value="">Automotive & Motorcycles</option>--}}
                             </select>
                         </div>
                 </div>
