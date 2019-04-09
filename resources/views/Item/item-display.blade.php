@@ -86,9 +86,11 @@
 
                     @endif
                     @if($item->owner != Auth::user()->id)
-                        <a href="/setAppointment/{{$item->owner}}&{{Auth::user()->id}}&{{$item->id}}" class="btn btn-default appoinmentBtn">
-                            Set Appointment
-                        </a>
+
+                        @if($item->onTrade == 0)
+                            <a href="/setAppointment/{{$item->owner}}&{{Auth::user()->id}}&{{$item->id}}" class="btn btn-default appoinmentBtn">
+                                Set Appointment
+                            </a>
                     @endif
                    
             </div>

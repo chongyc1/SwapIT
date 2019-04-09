@@ -119,6 +119,7 @@ class ItemController extends Controller
                     'items.item_pred',
                     'items.image_url',
                     'items.owner',
+                    'items.onTrade',
                     'category.catName',
                     'users.name',
                     'users.id as userID',
@@ -134,7 +135,11 @@ class ItemController extends Controller
     public function searchItem(){
 
         $search = Input::get ('search');
-        $items['items'] = DB::table('items') ->where('item_desc','LIKE','%'.$search.'%') -> get()-> toArray();
+        $items['items'] = DB::table('items')
+            ->orWhere('item_desc','LIKE','%'.$search.'%')
+            ->orWhere('item_title','LIKE','%'.$search.'%')
+            -> get()
+            -> toArray();
 
         return view('item.search-item')->with($items);
     
