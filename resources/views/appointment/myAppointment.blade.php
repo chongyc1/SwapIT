@@ -53,7 +53,6 @@
 
 	<div class="containerItem">
 		<div class="row">
-
 			<div class="col-sm-4 col-md-4">
 				<div class="item1">
 					<img src="{{asset('images')}}/{{$app['ownerItemURL']}}" class="postItem-image" alt="Bedside Table image">
@@ -83,91 +82,79 @@
 						</h5>
 					</div>
 				</div>
-
-					{{--<button class="btn btn-success detailsBtn">--}}
-						{{--View--}}
-					{{--</button>--}}
-
-		@if($app['buyerID'] == Auth::user()->id)
-			<button class="btn detailsBtn" onclick="openModal('{{$app['ownerItemID']}}','{{$app['ownerID']}}','{{$app['appID']}}','b')">
-				View
-			</button>
-		@elseif($app['ownerID'] == Auth::user()->id)
-			<button class="btn detailsBtn" onclick="openModal('{{$app['buyerItemID']}}','{{$app['buyerID']}}','{{$app['appID']}}','o')">
-				View
-			</button>
-		@endif
-	</div>
-				<hr>
-		@endforeach
-				{{--<div class="containerItem">--}}
-					{{--<div class="item1">--}}
-						{{--<img src="#" class="imgItem" alt="MyItemImg">--}}
-					{{--</div>--}}
-
-					{{--<div class="arrowBtw">--}}
-						{{--<span style='font-size:50px;'>&#8644;</span>--}}
-					{{--</div>--}}
-
-					{{--<div class="item1">--}}
-						{{--<img src="#" class="imgItem" alt="SellerItemImg">--}}
-					{{--</div>--}}
-
-					{{--<button class="btn appoinmentBtn" id="myBtn">--}}
-						{{--View--}}
-					{{--</button>--}}
-				{{--</div>--}}
-
 			</div>
 		</div>
 
-			<!-- The Modal -->
-			<div id="apptModal" class="modal">
+		{{--<button class="btn btn-success detailsBtn">--}}
+			{{--View--}}
+		{{--</button>--}}
 
-				<div class="modal-content">
-					<span class="close">&times;</span>
-					<h1>Item Details</h1>
-					<div class="container">
-						<img id="item_image_url" class="imgItem" alt="MyItemImg" width="100px" height="100px">
-					</div>
+		@if($app['buyerID'] == Auth::user()->id)
+		<button class="btn detailsBtn" onclick="openModal('{{$app['ownerItemID']}}','{{$app['ownerID']}}','{{$app['appID']}}','b')">
+			View
+		</button>
+		@elseif($app['ownerID'] == Auth::user()->id)
+		<button class="btn detailsBtn" onclick="openModal('{{$app['buyerItemID']}}','{{$app['buyerID']}}','{{$app['appID']}}','o')">
+			View
+		</button>
+		@endif
+	</div>
+	<hr>
+	@endforeach
 
-					<div class="itemDetails">
-						<div class="details">
-							<p> Item Name: <span id="itemName"></span></p>
-						</div>
-						<div class="details">
-							<p> Description: <span id="itemDesc"></span> </p>
-						</div>
-						<div class="details">
-							<p> Category: <span id="itemCat"></span> </p>
-						</div>
-						<div class="details">
-							<p> Owner:  <span id="ownerName"></span></p>
-						</div>
-						<div class="details">
-							<p> Owner email: <span id="ownerEmail"></span> </p>
-						</div>
-						<div class="details">
-							<p> Status: <span id="status"></span> </p>
-						</div>
+</div>
 
-						<input type="hidden" id="appID">
+<!-- The Modal -->
+<div id="apptModal" class="modal">
 
-						<button class="btn btn-danger chgStatusBtn" style="display:none" onclick="updStatus('A')">
-							Approve
-						</button>
+	<div class="modal-content">
+		<span class="close">&times;</span>
+			<h1 class="modalTitle">Item Details</h1>
 
-						<button class="btn btn-danger chgStatusBtn"  style="display:none" onclick="updStatus('D')">
-							Decline
-						</button>
+			<div class="itemDetails">
+		<div class="ModalImgcontainer">
+			<img id="item_image_url" class="imgItem" alt="MyItemImg" width="100px" height="100px">
+		</div>
 
-					</div>
-
-				</div>
+		
+			<div class="Modaldetails">
+				<p> Item Name: <span id="itemName"></span></p>
+			</div>
+			<div class="Modaldetails">
+				<p> Description: <span id="itemDesc"></span> </p>
+			</div>
+			<div class="Modaldetails">
+				<p> Category: <span id="itemCat"></span> </p>
+			</div>
+			<div class="Modaldetails">
+				<p> Owner:  <span id="ownerName"></span></p>
+			</div>
+			<div class="Modaldetails">
+				<p> Owner email: <span id="ownerEmail"></span> </p>
+			</div>
+			<div class="Modaldetails">
+				<p> Status: <span id="status"></span> </p>
 			</div>
 
-			<script>
-				var modal = document.getElementById('apptModal');
+			<input type="hidden" id="appID">
+
+			<div class="btnClass">
+				<button class="btn btn-success chgStatusBtn" style="display:none" onclick="updStatus('A')">
+					Approve
+				</button>
+
+				<button class="btn btn-danger chgStatusBtn"  style="display:none" onclick="updStatus('D')">
+					Decline
+				</button>
+			</div>
+
+		</div>
+
+	</div>
+</div>
+
+<script>
+	var modal = document.getElementById('apptModal');
 				// var btn = document.getElementById("myBtn");
 				var span = document.getElementsByClassName("close")[0];
 
@@ -175,77 +162,76 @@
 				// 	margin: modal.style.display = "block";
 				// };
 
-			<button class="btn btn-danger" id="myBtn">
-				Decline
-			</button>
-		</div>
-    
+				span.onclick = function() {
+					modal.style.display = "none";
+				};
+
 				window.onclick = function(event) {
 					if (event.target == modal) {
 						modal.style.display = "none";
 					}
 				}
-                function openModal(itemID,userID,appID,type){
-                    margin: modal.style.display = "block";
-                    $.ajax({
-                        type : 'post',
-                        url : 'getAppDetail',
-                        data : {
-                            _token : '{{csrf_token()}}',
-                            itemID : itemID,
-                            userID : userID,
-                            appID : appID,
-                            type : type,
-                        },
-                        success:function(d){
-                            let url = "{{asset('images')}}/"+ d.item.image_url;
-                            $('#item_image_url').attr('src',url);
-                            $('#itemName').text(d.item.item_title);
-                            $('#itemDesc').text(d.item.item_desc);
-                            $('#itemCat').text(d.item.catName);
-                            $('#ownerName').text(d.users.name);
-                            $('#ownerEmail').text(d.users.email);
-                            $('#status').text(d.app.status);
-                            $('#appID').val(d.app.id);
+				function openModal(itemID,userID,appID,type){
+					margin: modal.style.display = "block";
+					$.ajax({
+						type : 'post',
+						url : 'getAppDetail',
+						data : {
+							_token : '{{csrf_token()}}',
+							itemID : itemID,
+							userID : userID,
+							appID : appID,
+							type : type,
+						},
+						success:function(d){
+							let url = "{{asset('images')}}/"+ d.item.image_url;
+							$('#item_image_url').attr('src',url);
+							$('#itemName').text(d.item.item_title);
+							$('#itemDesc').text(d.item.item_desc);
+							$('#itemCat').text(d.item.catName);
+							$('#ownerName').text(d.users.name);
+							$('#ownerEmail').text(d.users.email);
+							$('#status').text(d.app.status);
+							$('#appID').val(d.app.id);
                             // console.log(d);
                             if(d.type === 'b'){
-                                $('.chgStatusBtn').css('display','none');
+                            	$('.chgStatusBtn').css('display','none');
                             }
                             else{
-                                if(d.app.status == 'APPROVED' || d.app.status == 'DECLINED'){
-                                    console.log('wew');
-                                }
-                                else{
-                                    $('.chgStatusBtn').css('display','initial');
-                                }
+                            	if(d.app.status == 'APPROVED' || d.app.status == 'DECLINED'){
+                            		console.log('wew');
+                            	}
+                            	else{
+                            		$('.chgStatusBtn').css('display','initial');
+                            	}
                             }
                             // console.log(d.type);
                         }
                     })
-                }
-                function updStatus(status){
-                    let appID = $('#appID').val();
-                    console.log(appID);
-                    $.ajax({
-                        type : 'post',
-                        url : 'updStatus',
-                        data : {
-                            _token : '{{csrf_token()}}',
-                            appID : appID,
-                            status : status,
-                        },
-                        success:function(d){
-                            swal({
-                                type: 'success',
-                                title: 'Status Updated!',
-                                showConfirmButton: false,
-                                timer: 1500
-                            })
-                            $('#status').text(d);
-                            $('.chgStatusBtn').css('display','none');
-                        }
-                    });
-                }
+				}
+				function updStatus(status){
+					let appID = $('#appID').val();
+					console.log(appID);
+					$.ajax({
+						type : 'post',
+						url : 'updStatus',
+						data : {
+							_token : '{{csrf_token()}}',
+							appID : appID,
+							status : status,
+						},
+						success:function(d){
+							swal({
+								type: 'success',
+								title: 'Status Updated!',
+								showConfirmButton: false,
+								timer: 1500
+							})
+							$('#status').text(d);
+							$('.chgStatusBtn').css('display','none');
+						}
+					});
+				}
 			</script>
 
 		</body>
@@ -267,5 +253,4 @@
 				</script>
 			</div>
 		</footer>
-
-</html>
+		</html>
