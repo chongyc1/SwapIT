@@ -26,7 +26,7 @@
         </a>
         <a href="post-item" class="hoverColor">Post Item</a>
         <a href="my-item" class="hoverColor">My Item</a>
-        <a href="#about" class="hoverColor">My Appointment</a>
+        <a href="/myAppointment" class="hoverColor">My Appointment</a>
 
          <form class="searchForm" action="/search" method="POST" role="search" >
             {{ csrf_field() }}
@@ -70,11 +70,11 @@
 {{--</div>--}}
 <div class="container">
     <div class="row" id="chatAlert">
-        <div class="col-md-3">
-            <div class="alert alert-success" role="alert">
-                This is a secondary alert—check it out!
-            </div>
-        </div>
+        {{--<div class="col-md-3">--}}
+            {{--<div class="alert alert-success" role="alert">--}}
+                {{--This is a secondary alert—check it out!--}}
+            {{--</div>--}}
+        {{--</div>--}}
     </div>
 </div>
 <div class="mostPopular">
@@ -101,7 +101,7 @@
 
         @foreach($items as $item)
         @if(Auth::user()->id != $item->owner)
-            <div class="col-sm-4 col-md-4 col-lg-4">
+            <div class="col-md-4">
                 <a href="/item/{{$item->id}}" onclick="addItemClick('{{$item->id}}')">
                     <img src="{{asset('images/'.$item->image_url)}}" class="popItems" alt="Phone Case" width="300px" height="300px">
                     <p class="popItemsDesc"> {{$item->item_title}}</p>

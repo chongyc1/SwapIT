@@ -25,7 +25,7 @@
         </a>
         <a href="post-item" class="hoverColor">Post Item</a>
         <a href="/my-item" class="hoverColor">My Item</a>
-        <a href="#about" class="hoverColor">History</a>
+        <a href="/myAppointment" class="hoverColor">My appointment</a>
         <a class="loginNav" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">Hello, {{Auth::user()->name}}</a>
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">

@@ -20,13 +20,13 @@
 <body class="main">
 <header>
     <div class="topnav" id="myTopnav">
-        <a href="index.html">
+        <a href="">
             <img src="{{asset('frontend/images/SwapItLogo_horizontal.png')}}" alt="SWAPIT Logo" width="200">
         </a>
-        <a href="#categories" class="hoverColor">Categories</a>
-        <a href="#trending" class="hoverColor">Trending</a>
-        <a href="#about" class="hoverColor">About</a>
-        <a href="#contactUs" class="hoverColor">Contact Us</a>
+        {{--<a href="#categories" class="hoverColor">Categories</a>--}}
+        {{--<a href="#trending" class="hoverColor">Trending</a>--}}
+        {{--<a href="#about" class="hoverColor">About</a>--}}
+        {{--<a href="#contactUs" class="hoverColor">Contact Us</a>--}}
         <a href="login" class="loginNav">Login</a>
         <a href="register" class="signupNav">Sign Up</a>
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
@@ -51,32 +51,32 @@
 </div>
 
 <div class="mostPopular">
-    <h2> MOST POPULAR </h2>
-    <p class="popDesc"> The most click items in this week. </p>
+    {{--<h2> MOST POPULAR </h2>--}}
+    {{--<p class="popDesc"> The most click items in this week. </p>--}}
 
-    <div class="row popItemsSec">
-        <div class="col-sm-4 col-md-4 col-lg-4">
-            <a href="#">
-                <img src="{{asset('frontend/images/watch.jpg')}}" class="popItems" alt="watch" width="300px" height="300px">
-                <p class="popItemsDesc"> Cluse Watch </p>
-            </a>
-        </div>
+    {{--<div class="row popItemsSec">--}}
+        {{--<div class="col-sm-4 col-md-4 col-lg-4">--}}
+            {{--<a href="#">--}}
+                {{--<img src="{{asset('frontend/images/watch.jpg')}}" class="popItems" alt="watch" width="300px" height="300px">--}}
+                {{--<p class="popItemsDesc"> Cluse Watch </p>--}}
+            {{--</a>--}}
+        {{--</div>--}}
 
-        <div class="col-sm-4 col-md-4 col-lg-4">
-            <a href="#">
-                <img src="{{asset('frontend/images/phoneCase.jpg')}}" class="popItems" alt="Phone Case" width="300px" height="300px">
-                <p class="popItemsDesc"> Iphone Case - You will forever be my always </p>
-            </a>
-        </div>
+        {{--<div class="col-sm-4 col-md-4 col-lg-4">--}}
+            {{--<a href="#">--}}
+                {{--<img src="{{asset('frontend/images/phoneCase.jpg')}}" class="popItems" alt="Phone Case" width="300px" height="300px">--}}
+                {{--<p class="popItemsDesc"> Iphone Case - You will forever be my always </p>--}}
+            {{--</a>--}}
+        {{--</div>--}}
 
-        <div class="col-sm-4 col-md-4 col-lg-4 ">
-            <a href="#">
-                <img src="{{asset('frontend/images/mug.jpg')}}" class="popItems" alt="mug" width="300px" height="300px">
-                <p class="popItemsDesc"> Floral Mug and Plate Set </p>
-            </a>
-        </div>
+        {{--<div class="col-sm-4 col-md-4 col-lg-4 ">--}}
+            {{--<a href="#">--}}
+                {{--<img src="{{asset('frontend/images/mug.jpg')}}" class="popItems" alt="mug" width="300px" height="300px">--}}
+                {{--<p class="popItemsDesc"> Floral Mug and Plate Set </p>--}}
+            {{--</a>--}}
+        {{--</div>--}}
 
-    </div>
+    {{--</div>--}}
 </div>
 
 <footer>

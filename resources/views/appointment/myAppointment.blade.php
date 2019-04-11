@@ -83,7 +83,7 @@
 						</div>
 						</div>
 					</div>
-				</div>
+		</div>
 
 					{{--<button class="btn btn-success detailsBtn">--}}
 						{{--View--}}
@@ -99,27 +99,10 @@
 			</button>
 		@endif
 	</div>
-				<hr>
-		@endforeach
-				{{--<div class="containerItem">--}}
-					{{--<div class="item1">--}}
-						{{--<img src="#" class="imgItem" alt="MyItemImg">--}}
-					{{--</div>--}}
+	<hr>
 
-					{{--<div class="arrowBtw">--}}
-						{{--<span style='font-size:50px;'>&#8644;</span>--}}
-					{{--</div>--}}
+	@endforeach
 
-					{{--<div class="item1">--}}
-						{{--<img src="#" class="imgItem" alt="SellerItemImg">--}}
-					{{--</div>--}}
-
-					{{--<button class="btn appoinmentBtn" id="myBtn">--}}
-						{{--View--}}
-					{{--</button>--}}
-				{{--</div>--}}
-
-			</div>
 
 			<!-- The Modal -->
 			<div id="apptModal" class="modal">
@@ -128,32 +111,33 @@
 					<span class="close">&times;</span>
 					<h1>Item Details</h1>
 					<div class="container">
-						<img id="item_image_url" class="imgItem" alt="MyItemImg" width="100px" height="100px">
+						<img id="item_image_url" class="imgItem" alt="MyItemImg" width="100px" height="100px" style="margin-left:30px">
 					</div>
+					<br>
 
 					<div class="itemDetails">
-						<div class="details">
+						<div class="Modaldetails">
 							<p> Item Name: <span id="itemName"></span></p>
 						</div>
-						<div class="details">
+						<div class="Modaldetails">
 							<p> Description: <span id="itemDesc"></span> </p>
 						</div>
-						<div class="details">
+						<div class="Modaldetails">
 							<p> Category: <span id="itemCat"></span> </p>
 						</div>
-						<div class="details">
+						<div class="Modaldetails">
 							<p> Owner:  <span id="ownerName"></span></p>
 						</div>
-						<div class="details">
+						<div class="Modaldetails">
 							<p> Owner email: <span id="ownerEmail"></span> </p>
 						</div>
-						<div class="details">
+						<div class="Modaldetails">
 							<p> Status: <span id="status"></span> </p>
 						</div>
 
 						<input type="hidden" id="appID">
 
-						<button class="btn btn-danger chgStatusBtn" style="display:none" onclick="updStatus('A')">
+						<button class="btn btn-success chgStatusBtn" style="display:none" onclick="updStatus('A')">
 							Approve
 						</button>
 
@@ -204,7 +188,28 @@
                             $('#itemCat').text(d.item.catName);
                             $('#ownerName').text(d.users.name);
                             $('#ownerEmail').text(d.users.email);
+
+
                             $('#status').text(d.app.status);
+                            if(d.app.status == 'APPROVED'){
+                                $('#status').css('color','green');
+
+							}
+							else{
+							    if(d.app.status == 'PENDING'){
+                                    $('#status').css('color','#ffd907');
+                                }
+                                if(d.app.status == 'DECLINED'){
+                                    $('#status').css('color','red');
+                                }
+
+                                // $('#status').css('color','red');
+							}
+							// if(d.app.status == ' DECLINED'){
+							//     $('#status').css('color','red');
+							// }
+
+
                             $('#appID').val(d.app.id);
                             // console.log(d);
                             if(d.type === 'b'){
@@ -212,7 +217,7 @@
                             }
                             else{
                                 if(d.app.status == 'APPROVED' || d.app.status == 'DECLINED'){
-                                    console.log('wew');
+                                    // console.log('wew');
                                 }
                                 else{
                                     $('.chgStatusBtn').css('display','initial');
@@ -241,6 +246,16 @@
                                 timer: 1500
                             })
                             $('#status').text(d);
+                            if(status == 'A'){
+                                $('#status').css('color','green');
+                            }
+                            else{
+                                $('#status').css('color','red');
+
+                            }
+                            // if(status == ' D'){
+                            //     $('#status').css('color','red');
+                            // }
                             $('.chgStatusBtn').css('display','none');
                         }
                     });
