@@ -21,6 +21,7 @@
 <body class="main">
 
 <header>
+
     <div class="topnav" id="myTopnav">
         <a href="/home">
             <img src="{{asset('frontend/images/SwapitLogo_horizontal.png')}}" alt="SWAPIT Logo" width="200">
@@ -35,18 +36,19 @@
         </a>
     </div>
 
-    <script>
-        function myFunction() {
-            var x = document.getElementById("myTopnav");
-            if (x.className === "topnav") {
-                x.className += " responsive";
-            } else {
-                x.className = "topnav";
-            }
-        }
-    </script>
-</header>
 
+        <script>
+            function myFunction() {
+                var x = document.getElementById("myTopnav");
+                if (x.className === "topnav") {
+                    x.className += " responsive";
+                } else {
+                    x.className = "topnav";
+                }
+            }
+        </script>
+    </header>
+    
 <section class="PostItem">
     <div class="container">
         <h1>Step 2: Item Information</h1>

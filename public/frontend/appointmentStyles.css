@@ -312,5 +312,30 @@
   /*margin-left: 20%;*/
 }
 
-.btnClass{
-  margin-top: 10px;  }
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .imgItem{
+    width: 300px;
+    height: 300px;
+  }
+
+  .Modaldetails{
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 5px;
+  }
+
+  .itemDetails{
+    margin-left: 20%;
+  }
+
+  .btnClass{
+    margin-top: 10px;  
+}
+
