@@ -75,7 +75,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <span class="form-label">Location</span>
-                                        <input class="form-control" type="text" name="location" required>
+                                        <input class="form-control" type="text" name="location" autocomplete="off" required>
                                     </div>
                                 </div>
                             </div>
